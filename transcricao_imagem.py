@@ -26,7 +26,7 @@ for index, review in reviews.iterrows():
 
   print(f'Processando imagem do review {reviewer_id} de {reviewer_email}...')
   arquivo_imagem = genai.upload_file(path=f'image/{review_image}')
-  prompt = 'Transcreva detalhadamente o arquivo de imagem em anexo.'
+  prompt = 'Transcreva detalhadamente o arquivo de imagem em anexo, o conteúdo se refere à logistica'
   response = model.generate_content([prompt, arquivo_imagem])
   with open(f"transcricoes-imagem/{reviewer_id}.txt", "w", encoding="utf-8") as arquivo:
     print(f'Salvando transcrição do imagem do review {reviewer_id} de {reviewer_email}...')
